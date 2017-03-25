@@ -1,0 +1,10 @@
+#!/bin/sh
+#PBS -N hello
+#PBS -l nodes=8:ppn=8,walltime=01:00:00
+#PBS -q batch
+#PBS -o $PBS_JOBNAME-$PBS_JOBID.out
+#PBS -e $PBS_JOBNAME-$PBS_JOBID.err
+#PBS -M praveen.madiraju@marquette.edu
+cd $PBS_O_WORKDIR
+module load openmpi/gcc/1.4.2
+mpiexec -np 64 hello
